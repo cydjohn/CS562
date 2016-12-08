@@ -2,6 +2,8 @@ package dcq.stevens.cs562.sql;
 
 import java.util.HashMap;
 
+import dcq.stevens.cs562.utils.DCQSQLStringParse;
+
 public class DCQSqlSentence {
 	private DCQSelectElement selectElement; 
 	
@@ -17,5 +19,10 @@ public class DCQSqlSentence {
 	
 	private HashMap<String, DCQGroupingVariable> groupingVariableDictionary;
 	
+	private HashMap<String, String> attributesType;
 	
+	public DCQSqlSentence(String sql) {
+		// TODO Auto-generated constructor stub
+		String[] temp = DCQSQLStringParse.parseString(sql);
+	}
 }
