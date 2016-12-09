@@ -113,7 +113,7 @@ public class DCQReadFile {
 		//System.out.println(HavingCluse);
 		String HavingCondition = bf.readLine();
 		ArrayList<String> varibles_g = new ArrayList<String>();
-		if(!HavingCondition.startsWith("#")){
+		if(!HavingCondition.startsWith("$")){
 			String[] havingConditions = HavingCondition.split("and");
 			
 			for (int i = 0; i < havingConditions.length; i++) {

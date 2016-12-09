@@ -1,6 +1,5 @@
 package dcq.cs562.main;
 
-import java.sql.Connection;
 import java.util.HashMap;
 
 import dcq.cs562.sql.DCQMFVariables;
@@ -19,7 +18,7 @@ public class main {
 		System.out.println("Connection fail!!!");
 		return;
 	}
-	Connection c = connector.getConnection();
+
 	 HashMap<String, String> tableStructure = connector.getTableStructure();
 	DCQReadFile f = new DCQReadFile();
 
