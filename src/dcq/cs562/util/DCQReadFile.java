@@ -25,10 +25,9 @@ public class DCQReadFile {
 		BufferedReader bufferedReader = null ;
 		try {
 
-			String encoding = "GBK";
 			if (file.isFile() && file.exists()) { // the file is exit
 				// Reader reader = null;
-				InputStreamReader read = new InputStreamReader(new FileInputStream(file),encoding);
+				InputStreamReader read = new InputStreamReader(new FileInputStream(file));
 				bufferedReader = new BufferedReader(read);
 			} else {
 				System.out.println("system cannot find the file");
@@ -49,7 +48,6 @@ public class DCQReadFile {
 		boolean flag = false;
 		DCQMFVariables varibles = new DCQMFVariables();
 		BufferedReader bf = readFile(filename);
-		System.out.println(bf);
 		String selectAttribute = bf.readLine();
 		//#SELECT ATTRIBUTE(S)
 		//System.out.println(selectAttribute);

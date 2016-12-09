@@ -33,7 +33,7 @@ public class DCQWriteFIle {
 		printFile.setImportList(importList);
 		try{
             
-            fw = new FileWriter("dcq.cs562.mfQuery//"+className);
+            fw = new FileWriter("src//dcq//cs562//mfQuery//"+className);
             // write it to the disk
             fw.write(printFile.write(connector));
 

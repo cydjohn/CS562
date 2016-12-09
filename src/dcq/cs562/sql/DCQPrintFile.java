@@ -219,14 +219,7 @@ public class DCQPrintFile {
 	public void printComments(){
 		Date d=new Date();
 		SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd");
-		String comments= "/**"+
-			"\r\n @Title: "+fileName+
-			"\r\n @Package "+packageName+
-			"\r\n @Description: The output File for final query of cs562 project"+
-			"\r\n @author Xuan Li,Xinyu Ge (Group SQLKnockout)"+
-			"\r\n @date "+df.format(d)+
-			"\r\n @version V1.0  "+
-			"\r\n*/ \r\n";
+		String comments = "// This is an auto generate file \n ";
 		returnValue.append(comments);
 	}
 
@@ -675,8 +668,6 @@ public class DCQPrintFile {
 				}
 			}
 
-
-
 			//end of if condition
 			handleMFstructure.append("\t}\r\n");
 			handleMFstructure.append("\t}\r\n");
@@ -995,25 +986,13 @@ public class DCQPrintFile {
 		
 		finalString.append("\t}\r\n");
 
-
-
-
-
-
 		returnValue.append(finalString);
 	}
-	/**
-	 *
-	 * @param
-	 * @return
-	 * @author Xuan Li
-	 * @param connector
-	 * @date 2016-4-20
-	 * @parameterFromMfVariablse 
-	 * @Description appent the content of main Output class to returnValue,
-	 * 				In this method, we need call some other print function, such as printDatabaseConnt,printFirstScan,printHandleMFstructure,printHavingClause,printFinalResult
-	 * 			
-	 */
+
+	
+//	appent the content of main Output class to returnValue,
+//	In this method, we need call some other print function, 
+//	such as printDatabaseConnt,printFirstScan,printHandleMFstructure,printHavingClause,printFinalResult
 	public void printClass(DCQConnector connector){
 		
 		String classString= "public class  "+fileName.split("\\.")[0]+" {\r\n";
