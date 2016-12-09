@@ -1000,8 +1000,7 @@ public class DCQPrintFile {
 		String mainString = "\tpublic static void main(String[] args) throws Exception {\r\n";
 		
 		returnValue.append(mainString);
-		//for test time
-		returnValue.append("\tlong startTime=System.currentTimeMillis();\r\n");
+
 		// print connect to database
 		printDatabaseConnt(connector);
 		// print the first scan
@@ -1013,10 +1012,7 @@ public class DCQPrintFile {
 		printHavingClause(connector);
 		// print the final result based on seletion part
 		printFinalResult(connector);
-		//for test time
-		returnValue.append("\tlong endTime=System.currentTimeMillis();\r\n");
-		returnValue.append("\tlong Time=endTime-startTime;\r\n");
-		returnValue.append("\tSystem.out.println(\"the program run�� \"+Time+\"ms\");\r\n");
+
 		
 		//for main function
 		returnValue.append("}\r\n");
