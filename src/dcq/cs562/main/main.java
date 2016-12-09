@@ -24,8 +24,8 @@ public class main {
 	DCQReadFile f = new DCQReadFile();
 
 	DCQMFVariables variables = null;
-	variables = f.load("test02");
-//	variables = f.load("testSql1.txt");
+//	variables = f.load("test02");
+	variables = f.load("testSql1.txt");
 	
 	DCQWriteFIle fw = new DCQWriteFIle();
 	String fileName = fw.writeFile(connector,variables);

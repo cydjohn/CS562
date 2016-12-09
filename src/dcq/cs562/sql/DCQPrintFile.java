@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+import org.w3c.dom.css.ElementCSSInlineStyle;
+
 import dcq.cs562.util.DCQConnector;
 
 public class DCQPrintFile {
@@ -158,11 +160,13 @@ public class DCQPrintFile {
 				returnValue.append("\tpublic void set"+upperCaseString+"("+ type+" "+name +"){\r\n" );
 				returnValue.append("\t\tthis."+name+" = "+name+";\r\n");
 				returnValue.append("\t}\r\n");
+			}
+			else if(name.contains("sum_")){
 				//sum
 				name = name.replace("count_", "sum_");
 				attrubutes.add(name);
 				returnValue.append("\tprivate " + type + " " + name + ";\r\n");
-				upperCaseString =  name.substring(0, 1).toUpperCase() + name.substring(1);
+				String upperCaseString =  name.substring(0, 1).toUpperCase() + name.substring(1);
 				//set function
 				returnValue.append("\tpublic "+ type +" get"+upperCaseString+"(){\r\n" );
 				returnValue.append("\t\treturn "+name+";\r\n");
@@ -410,7 +414,7 @@ public class DCQPrintFile {
 
 		firstScan.append("\t}\r\n");
 		firstScan.append("\t\r\n");
-		firstScan.append("// now we have finished the first step to create our mf structure based on grouping varibles, initial the mf structure");
+		firstScan.append("// ==========================================================");
 		firstScan.append("\t\r\n");
 		firstScan.append("\t\r\n");
 		firstScan.append("\t\r\n");
@@ -691,7 +695,7 @@ public class DCQPrintFile {
 			havingClause.append("for(int i = 0;i < mfs.size(); i ++){ \r\n");
 			havingClause.append("\tMFStruture mf = mfs.get(i);\r\n");
 			// if contiditon insert
-			havingClause.append("if(!(");
+			havingClause.append("if(!((");
 			for (int i = 0; i < havings.size(); i++) {
 				String left = "";
 				String right = "";
@@ -817,20 +821,15 @@ public class DCQPrintFile {
 								}
 							}
 
-
-
-
-
-
-
-					havingClause.append("&&");
+					havingClause.append(")&&(");
 
 
 			}
-			// delete the last &&, because it is useless
+			// delete the last &&(
 			havingClause.deleteCharAt(havingClause.length()-1);
 			havingClause.deleteCharAt(havingClause.length()-1);
-			havingClause.append(")){\r\n");
+			havingClause.deleteCharAt(havingClause.length()-1);
+			havingClause.append("))){\r\n");
 			havingClause.append("\tmfs.remove(i);\r\n");
 			havingClause.append("\ti--;\r\n");
 
