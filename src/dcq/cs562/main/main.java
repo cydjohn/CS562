@@ -16,7 +16,7 @@ public class main {
 
 	}catch (Exception e) {
 		e.printStackTrace();
-		System.out.println("ConnectionFactory create fail!!!");
+		System.out.println("Connection fail!!!");
 		return;
 	}
 	Connection c = connector.getConnection();

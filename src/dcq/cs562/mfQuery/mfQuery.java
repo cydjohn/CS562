@@ -78,6 +78,13 @@ import java.sql.ResultSet;
 	public void setMf1_count_quant(double mf1_count_quant){
 		this.mf1_count_quant = mf1_count_quant;
 	}
+	private double mf1_sum_quant;
+	public double getMf1_sum_quant(){
+		return mf1_sum_quant;
+	}
+	public void setMf1_sum_quant(double mf1_sum_quant){
+		this.mf1_sum_quant = mf1_sum_quant;
+	}
 	private double mf2_count_quant;
 	public double getMf2_count_quant(){
 		return mf2_count_quant;
@@ -85,12 +92,26 @@ import java.sql.ResultSet;
 	public void setMf2_count_quant(double mf2_count_quant){
 		this.mf2_count_quant = mf2_count_quant;
 	}
+	private double mf2_sum_quant;
+	public double getMf2_sum_quant(){
+		return mf2_sum_quant;
+	}
+	public void setMf2_sum_quant(double mf2_sum_quant){
+		this.mf2_sum_quant = mf2_sum_quant;
+	}
 	private double mf3_count_quant;
 	public double getMf3_count_quant(){
 		return mf3_count_quant;
 	}
 	public void setMf3_count_quant(double mf3_count_quant){
 		this.mf3_count_quant = mf3_count_quant;
+	}
+	private double mf3_sum_quant;
+	public double getMf3_sum_quant(){
+		return mf3_sum_quant;
+	}
+	public void setMf3_sum_quant(double mf3_sum_quant){
+		this.mf3_sum_quant = mf3_sum_quant;
 	}
 }
 public class  mfQuery {
@@ -100,7 +121,7 @@ public class  mfQuery {
 	"jdbc:postgresql://localhost:5432/test", "serf", "HailCS548!");
 	Statement st = con.createStatement();
 	ResultSet rs;
-	System.out.println("Connect to databse success!!!");
+	System.out.println("Connected to databse!!!");
 
 	
 	ArrayList<MFStruture> mfs = new ArrayList<MFStruture>(); 
@@ -126,8 +147,11 @@ public class  mfQuery {
 	MFStruture mfstructue = new MFStruture();
 	mfstructue.setCust(t.getCust());
 	mfstructue.setMf1_count_quant(0);
+	mfstructue.setMf1_sum_quant(0);
 	mfstructue.setMf2_count_quant(0);
+	mfstructue.setMf2_sum_quant(0);
 	mfstructue.setMf3_count_quant(0);
+	mfstructue.setMf3_sum_quant(0);
 	mfs.add(mfstructue);
 	}
 	}
@@ -175,7 +199,7 @@ public class  mfQuery {
 	}
 for(int i = 0;i < mfs.size(); i ++){ 
 	MFStruture mf = mfs.get(i);
-if(!(((mf.getMf1_sum_quant() / mf.getMf1_count_quant())>(mf.getMf2_sum_quant() / mf.getMf2_count_quant()))&&((mf.getMf1_sum_quant() / mf.getMf1_count_quant())>(mf.getMf3_sum_quant() / mf.getMf3_count_quant()))))){
+if(!(((mf.getMf1_sum_quant() / mf.getMf1_count_quant())>(mf.getMf2_sum_quant() / mf.getMf2_count_quant()))&&((mf.getMf1_sum_quant() / mf.getMf1_count_quant())>(mf.getMf3_sum_quant() / mf.getMf3_count_quant())))){
 	mfs.remove(i);
 	i--;
 }

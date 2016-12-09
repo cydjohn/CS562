@@ -57,11 +57,11 @@ public class DCQConnector {
 		 try
 			{
 		 Class.forName(prop.getProperty("DRIVER_CLASS"));
-		 System.out.println("Success loading Driver!");
+		 System.out.println("loading Driver Success!");
 			}
 			catch(Exception e)
 			{
-				System.out.println("Fail loading Driver!");
+				System.out.println("loading Driver Fail!");
 				e.printStackTrace();
 			}
 

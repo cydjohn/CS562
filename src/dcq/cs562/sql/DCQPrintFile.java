@@ -160,13 +160,13 @@ public class DCQPrintFile {
 				returnValue.append("\tpublic void set"+upperCaseString+"("+ type+" "+name +"){\r\n" );
 				returnValue.append("\t\tthis."+name+" = "+name+";\r\n");
 				returnValue.append("\t}\r\n");
-			}
-			else if(name.contains("sum_")){
-				//sum
+//			}
+//			else if(name.contains("count_")){
+//				sum
 				name = name.replace("count_", "sum_");
 				attrubutes.add(name);
 				returnValue.append("\tprivate " + type + " " + name + ";\r\n");
-				String upperCaseString =  name.substring(0, 1).toUpperCase() + name.substring(1);
+				upperCaseString =  name.substring(0, 1).toUpperCase() + name.substring(1);
 				//set function
 				returnValue.append("\tpublic "+ type +" get"+upperCaseString+"(){\r\n" );
 				returnValue.append("\t\treturn "+name+";\r\n");
@@ -260,7 +260,7 @@ public class DCQPrintFile {
 		 database.append("\t\""+url+"\", \""+user+"\", \""+password+"\");\r\n");
 		 database.append("\tStatement st = con.createStatement();\r\n");
 		 database.append("\tResultSet rs;\r\n");
-		 database.append("\tSystem.out.println(\"Connect to databse success!!!\");\r\n");
+		 database.append("\tSystem.out.println(\"Connected to databse!!!\");\r\n");
 
 		returnValue.append("\t"+database+"\r\n");
 
@@ -608,9 +608,6 @@ public class DCQPrintFile {
 
 					}
 
-
-
-
 					handleMFstructure.append("&&");
 
 			}
@@ -726,7 +723,6 @@ public class DCQPrintFile {
 						String fakeLeft = "mf"+left;
 						if(mfvaribles.contains(fakeLeft)){
 							havingClause.append("(mf.get"+fakeLeft+"()");
-
 						}
 					}
 					if(operater.equals("<>")){
@@ -829,7 +825,7 @@ public class DCQPrintFile {
 			havingClause.deleteCharAt(havingClause.length()-1);
 			havingClause.deleteCharAt(havingClause.length()-1);
 			havingClause.deleteCharAt(havingClause.length()-1);
-			havingClause.append("))){\r\n");
+			havingClause.append(")){\r\n");
 			havingClause.append("\tmfs.remove(i);\r\n");
 			havingClause.append("\ti--;\r\n");
 
